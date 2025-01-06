@@ -1,6 +1,10 @@
 # Stage 1: Construcción
 FROM node:23 AS builder
 
+LABEL maintainer="israoo@outlook.com" \
+      description="Optimized Dockerfile for Node.js applications" \
+      version="1.0.0"
+
 WORKDIR /app
 
 COPY package*.json ./
@@ -14,6 +18,9 @@ COPY . .
 
 # Stage 2: Producción
 FROM node:23-alpine
+
+# Establecer variable de entorno
+ENV NODE_ENV=production
 
 WORKDIR /app
 
