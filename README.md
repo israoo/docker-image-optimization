@@ -81,10 +81,10 @@ docker-image-optimization/
 
 ## Comparación de imágenes
 
-| Imagen | Tamaño | Usuario |
-|--------|--------| ------- |
-| docker-image-optimization:traditional | 1120 MB | root |
-| docker-image-optimization:optimized |  159 MB | appuser |
+| Imagen                                | Tamaño  | Usuario |
+|-------------------------------------- |-------- | ------- |
+| docker-image-optimization:traditional | 1120 MB | root    |
+| docker-image-optimization:optimized   |  159 MB | appuser |
 
 La imagen optimizada es 7 veces más pequeña que la imagen tradicional. Además, la imagen optimizada utiliza un usuario no privilegiado para ejecutar la aplicación.
 
