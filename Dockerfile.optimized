@@ -1,0 +1,32 @@
+# Stage 1: Construcción
+FROM node:23 AS builder
+
+WORKDIR /app
+
+COPY package*.json ./
+
+# Agrupar múltiples comandos en una sola capa
+RUN npm ci --only=production && \
+    npm cache clean --force
+
+COPY . .
+
+
+# Stage 2: Producción
+FROM node:23-alpine
+
+WORKDIR /app
+
+# Configuración de usuario sin privilegios
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup && \
+    chown -R appuser:appgroup /app
+
+# Copiar solo los archivos necesarios
+COPY --from=builder /app ./
+
+# Establecer usuario sin privilegios
+USER appuser
+
+EXPOSE 3000
+
+CMD ["node", "server.js"]

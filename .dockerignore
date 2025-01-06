@@ -1,0 +1,16 @@
+# NodeJS
+dist/
+node_modules/
+
+# Operating Systems
+*.DS_Store
+
+# IDE
+.vscode/
+
+# Common
+.git/
+.dockerignore
+.gitignore
+README.md
+Dockerfile*
