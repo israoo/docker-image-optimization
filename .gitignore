@@ -1,0 +1,9 @@
+# NodeJS
+dist/
+node_modules/
+
+# Operating Systems
+*.DS_Store
+
+# IDE
+.vscode/
