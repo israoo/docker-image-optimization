@@ -11,8 +11,8 @@ WORKDIR /app
 COPY package*.json ./
 
 # Agrupar múltiples comandos en una sola capa
-RUN npm ci --only=production && \
-    npm cache clean --force
+RUN npm cache clean --force && \
+    npm ci --only=production
 
 COPY . .
 
