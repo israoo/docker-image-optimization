@@ -13,6 +13,7 @@ docker-image-optimization/
 ├── Dockerfile.traditional   # Dockerfile tradicional
 ├── package-lock.json        # Dependencias del proyecto (bloqueadas)
 ├── package.json             # Dependencias del proyecto
+├── scan-with-trivy.sh       # Script para escanear imágenes con Trivy
 └── server.js                # Código de la aplicación Node.js
 ```
 
@@ -71,7 +72,14 @@ docker-image-optimization/
     docker rm $(docker ps -aq)
     ```
 
-8. Elimina las imágenes.
+8. Escanea las imágenes con Trivy.
+
+    ```bash
+    ./scan-with-trivy.sh docker-image-optimization:traditional
+    ./scan-with-trivy.sh docker-image-optimization:optimized
+    ```
+
+9. Elimina las imágenes.
 
     ```bash
     docker rmi docker-image-optimization:traditional docker-image-optimization:optimized
