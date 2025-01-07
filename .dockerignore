@@ -14,3 +14,7 @@ node_modules/
 .gitignore
 README.md
 Dockerfile*
+
+# Specific
+*-trivy-scan-report.txt
+scan-with-trivy.sh
